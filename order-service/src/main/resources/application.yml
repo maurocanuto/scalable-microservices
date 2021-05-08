@@ -2,9 +2,18 @@ spring:
   application:
     name: order-service
   datasource:
-    url: jdbc:postgresql://${POSTGRES_ENDPOINT:localhost}:5432/postgres
-    username: ${POSTGRES_USERNAME:eventuate}
-    password: ${POSTGRES_PASSWORD:eventuate}
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/postgres}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
+  jpa:
+    properties:
+      javax:
+        persistence:
+          schema-generation:
+            database:
+              action: update
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
 server:
   port: ${PORT:8000}

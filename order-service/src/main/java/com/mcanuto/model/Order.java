@@ -3,7 +3,7 @@ package com.mcanuto.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="order")
+@Table(name="customer_order")
 @Access(AccessType.FIELD)
 public class Order {
     @Id
